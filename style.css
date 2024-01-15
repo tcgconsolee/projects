@@ -1,374 +1,249 @@
-body {
-  margin: 0;
-  background: #0b0b0b;
-  overflow: hidden;
-  color: #f5f5f5;
-}
-
-::-webkit-scrollbar {
-  width: 0.5vw;
-  cursor: none;
-  z-index: 7
-}
-
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 0.4em #0b0b0b;
-  cursor: none;
-}
-
-::-webkit-scrollbar-thumb {
-  background:#263752;
-  opacity: 0.8;
-  border-radius: 0.75em;
-  cursor: none;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #1a2639;
-}
-
-.main-area::-webkit-scrollbar {
-  width: 1vw;
-  cursor: none;
-  z-index: 7;
-}
-
-.main-area::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 0.4em #263752;
-  cursor: none;
-}
-
-.main-area::-webkit-scrollbar-thumb {
-  background:#1a2639;
-  opacity: 0.8;
-  border-radius: 0.75em;
-  cursor: none;
-}
-.main-area::-webkit-scrollbar-thumb:hover {
-  background: #0b0b0b;
-}
-
 @font-face {
-  font-family: 'gilroyextrabold';
-  src: url('./fonts/gilroy-extrabold-webfont.woff2') format('woff2'),
-       url('./fonts/gilroy-extrabold-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
-@font-face {
-  font-family: 'gilroylight';
-  src: url('./fonts/gilroy-light-webfont.woff2') format('woff2'),
-       url('./fonts/gilroy-light-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-/*#263752, #1a2639 and #0b0b0b*/
-
-.menu {
-  height: 18vh;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: transparent;
-  border-bottom: #263752 solid 3px;
-  z-index: -1;
-}
-
-.artists {
-  height: 20vw;
-  width: 20vw;
-  border-radius: 100%;
-  background: #263752;
-  box-shadow:#1a2639 0 0 1vw;
-  position: absolute;
-  z-index: 1;
-  left: 10vw;
-  top: 5vh;
-  font-family: "gilroyextrabold";
-  font-size: 4vw;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.artists span {
-  position: absolute;
-  top: 7.5vw;
-  z-index: 2
-}
-
-.darkshade {
-  background: #1a2639;
-  height: 20vw;
-  width: 20vw;
-  margin-top: 50vw;
-  position: absolute;
-  z-index: 1;
-}
-@keyframes up {
-  0% {
-    margin-top: 50vw;
+    font-family: 'gilroyextrabold';
+    src: url('./fonts/gilroy-extrabold-webfont.woff2') format('woff2'),
+         url('./fonts/gilroy-extrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
   }
-  99.9% {
-    margin-top: 0vw;
+  @font-face {
+    font-family: 'gilroylight';
+    src: url('./fonts/gilroy-light-webfont.woff2') format('woff2'),
+         url('./fonts/gilroy-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
   }
-  100% {
-    margin-top: 0vw;
-  }
-}
 
-@keyframes down {
-  0% {
-    margin-top: 0vw;
+  /*
+  color scheme - #bfd2bf, #0A090C, #646f4b, #839d9a, #7bb2d9
+  base unit - 5
+  grid - column grid
+  */
+  body {
+    overflow: hidden;
+    background: #8ecae6;
+    color: #0A090C;
   }
-  99.9% {
-    margin-top: 50vw;
+
+  :root {
+    --horibase: 5vw;
+    --veribase: 10vh;
+    --animation: none;
   }
-  100% {
-    margin-top: 50vw;
+
+  /* folding */
+  .fold {
+    cursor: pointer;
   }
-}
-@keyframes expand {
-  0% {
-    width: 20vw;
-    height: 20vw;
-    border-radius: 100%;
-    left: 10vw;
+  .fold::before {
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-style: solid;
+    border-width: 0 0 20vh 10vw;
+    border-color: #ddd #8ecae6;
+    box-shadow:#2C666E 0 0 4vw;
+    transition: all ease 0.5s;
+    animation: var(--animation);
+    z-index: 2;
+  }
+  .fold:hover::before {
+    border-width: 0 0 30vh 15vw;
+    border-color: #eee #8ecae6;
+    box-shadow:#0A090C 0 0 4vw;
+  }
+
+  @keyframes fold {
+    0% {
+        border-width: 0 0 30vh 15vw;
+    }
+    100% {
+        border-width: 0 0 400vh 200vw;
+    }
+  }
+  .casestudies {
+    position: absolute;
+    top: 0vh;
+    left: 20.5vw;
+    width: 80vw;
+    height: 30vh;
+    font-size: 9vw;
+    font-family: 'gilroyextrabold';
+    color: #07393C;
+  }
+
+  .look {
+    position: relative;
+    top: 30vh;
+    left: 5vw;
+    font-family: 'gilroyextrabold';
+    font-size: 5vh;
+    width: 40vw;
+    height: 20vh;
+    color: #07393C;
+    text-align: left;
+  }
+  .box {
+    position: relative;
+    left: 50vw;
+    top: 0vh;
+    width: 30vw;
+    height: 50vw;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter:brightness(100%);
+    transition: filter 600ms ease-in-out;
+    transform: rotate(30deg);
+    user-select:none;
+  }
+  .box:after {
+    top: 70vh;
+    left: 55vw;
+    content: "Flip The Page";
+    position: absolute;
+    font-family: 'gilroyextrabold';
+    font-size: 3vw;
+    opacity: 0;
+    transition: all 600ms ease-in-out;
+    color:#07393C;
+    pointer-events: none;
+  }
+  .box:hover {
+    filter: brightness(50%);
+    transition: filter 600ms ease-in-out;
+  }
+  .box:hover::after {
+    top: 60vh;
+    opacity: 1;
+    transition: all 600ms ease-in-out;
+  }
+  .pen {
+    position: absolute;
+    width: 60vw;
+    height: 60vw;
+    left: 50vw;
+    top: -30vh;
+    pointer-events: none;
+    transform: rotate(-30deg);
+    filter:brightness(100%);
+    transition: filter 600ms ease-in-out;
+    user-select: none;
+  }
+  .box:hover ~ .pen {
+    filter: brightness(50%);
+    transition: filter 600ms ease-in-out;
+  }
+  .about {
+    position: absolute;
+    left: 5.5vw;
+    top: 47.5vh;
+    font-family: 'gilroylight';
+    font-size: 4vh;
+    width: 40vw;
+    color: #2C666E;
+  }
+  .visit {
+    background: #0A090C;
+    border-radius: 0.5vw;
+    position: absolute;
+    width: 10vw;
+    height: 5vh;
+    right: 0.5vw;
+    top: 0.5vh;
+    font-family: 'gilroyextrabold';
+    font-size: 1vw;
+    color:#8ecae6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .visit div span {
+    background:#0A090C;
+    mix-blend-mode: multiply;
+  }
+  .visit div {
+    background: linear-gradient( #8ecae6 , #8ecae6) white no-repeat 0 0;
+    background-size: 0 100%;
+    transition: all 500ms ease-in-out;
+  }
+  .visit:hover div {
+    background-size: 100% 100%;
+    transition: all 500ms ease-in-out;
+  }
+  .studies {
+    position: absolute;
+    z-index: 3;
+    display: none;
+    left: 0; 
+    top: 0; 
+    width: 100vw;
+    height: 100vh;
+  }
+  [class^="study-"] {
+    position: relative;
+    z-index: 4;
+    opacity: 0;
+    width: 39.5vw;
+    height: 40vh;
+    margin: 5vh 5vw;
+    margin-left: 5vw;
+    margin-top: 5vh;
+    background: #2C666E;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3vw;
+    box-shadow:#2C666E 0 0 2vw;
+    transition: all 500ms ease-in-out;
+    cursor: pointer;
+  }
+  [class^="studypic"] {
+    position: absolute;
+    width: 15vw;
+    height: 29vh;
+    left: 1vw;
     top: 5vh;
+    border-radius: 100%;
   }
-  99.9% {
-    width: 100vw;
-    height: 100vh;
-    border-radius: 0%;
-    left: 0vw;
-    top: 0vh;
+  [class^="studyname"] {
+    position: absolute;
+    font-family: 'gilroyextrabold';
+    font-size: 3vw;
+    left: 17.5vw;
+    top: 7.5vh;
   }
-  100% {
-    width: 100vw;
-    height: 100vh;
-    border-radius: 0%;
-    left: 0vw;
-    top: 0vh;
+  [class^="studydesc"] {
+    position: absolute;
+    font-family: 'gilroylight';
+    font-size: 1vw;
+    left: 17.5vw;
+    top: 15vh;
   }
-}
-@keyframes spanup {
-  0% {
-    top: 7.5vw;
-  }
-  99.9% {
-    top: 2vw;
-  }
-  100% {
-    top: 2vw;
-  }
-}
-.texts {
-  position: absolute;
-  left: 32vw;
-  top: 24vh;
-  font-family: "gilroylight";
-  font-size: 3vw;
-  width: 80vw;
-  height: 8vh;
-  overflow: hidden;
-}
-.texts span#text1 {
-  position: absolute;
-  bottom: 0;
-}
-.texts span#text2 {
-  position: absolute;
-  bottom: 8vh;
-}
-.texts span#text3 {
-  position: absolute;
-  bottom: 16vh;
-}
-.texts span#text4 {
-  position: absolute;
-  bottom: 24vh;
-}
-@keyframes top-bottom {
-  0% {
-    bottom: 8vh;
-  }
-  99.9% {
-    bottom: 0;
-  }
-  100% {
-    bottom: 0;
-  }
-}
-@keyframes middle-bottom {
-  0% {
-    bottom: 0vh;
-  }
-  99.9% {
-    bottom: -8vh;
-  }
-  100% {
-    bottom: -8vh;
-  }
-}
-.about {
-  position: absolute;
-  top: 55vh;
-  left: 2vw;
-  width: 70vw;
-  height: 50vh;
-  font-family: 'gilroylight';
-  font-size: 2vw;
-}
-.logo {
-  position: absolute;
-  right: 5vw;
-  bottom: 5vh;
-  height: 20vw;
-  width: 20vw;
-  border-radius: 100%;
-  background: #263752;
-  box-shadow:#1a2639 0 0 1vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.visit {
-  position: absolute;
-  bottom: 1vh;
-  left: 1vw;
-  font-family: 'Excon', sans-serif;
-  font-size: 1vw;
-  opacity: 0.6;
-  color: #f5f5f5;
-  text-decoration: none;
-}
-.filters {
-  width: 20vw;
-  height: 82vh;
-  position: absolute;
-  top: 18vh;
-  left: 0;
-  z-index: 2;
-  border-right: #0b0b0b solid 3px;
-  display: none;
-}
-.genres {
-  width: 15vw;
-  height: 76vh;
-  border-radius: 3vw;
-  position: absolute;
-  left: 2.5vw;
-  top: 3vh;
-  background: #0b0b0b;
-  box-shadow: #1a2639 0 0 6vw;
-  opacity: 0;
-}
-.genretitle {
-  text-align: center;
-  font-family: 'gilroyextrabold';
-  font-size: 2.5vw;
-  position: absolute;
-  top: 1vw;
-  width: 15vw;
 
-}
-.genrelist {
-  width: 15vw;
-  font-family: 'gilroylight';
-  font-size: 1.5vw;
-  position: absolute;
-  top: 5vw;
-  display: flex;
-  justify-content: center;
-}
-.genrelist span {
-  position: absolute;
-  cursor: pointer;
-}
-.genrelist span:after {    
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 2px;
-  left: 50%;
-  position: absolute;
-  background: #fff;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  width: 0;
-}
-.genrelist span:hover:after { 
-  width: 100%; 
-  left: 0; 
-}
-.genrelist span.rap {
-  top: 0;
-}
-.genrelist span.elec {
-  top: 2vw;
-}
-.genrelist span.pop {
-  top: 4vw
-}
-.genrelist span.rock {
-  top: 6vw;
-}
-.genrelist span.all {
-  top: 8vw;
-}
-.main-area {
-  width: 80vw;
-  height: 82vh;
-  position: absolute;
-  right: 0;
-  top: 18vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-[class^="artist-"] {
-  width: 70vw;
-  height: 30vh;
-  border-radius: 3vw;
-  background: #0b0b0b;
-  box-shadow: #1a2639 0 0 6vw;
-  margin-left: 2vw;
-  margin-top: 5vh;
-  margin-bottom: 2vh;
-  opacity: 0;
-  display: none;
-}
-[class^="artistpic-"] {
-  object-fit: cover;
-  position: absolute;
-  width: 25vh;
-  height: 25vh;
-  margin-left: 2.5vh;
-  margin-top: 2.5vh;
-  border-radius: 100%;
-}
-[class^="artistname-"] {
-  position: absolute;
-  font-size: 3vw;
-  color: #f5f5f5;
-  font-family: 'gilroyextrabold';
-  margin-left: 30vh;
-  margin-top: 5vh;
-}
-[class^="artistdesc-"] {
-  position: absolute;
-  font-size: 2vh;
-  color: #f5f5f5;
-  font-family: 'gilroylight';
-  margin-left: 30vh;
-  margin-top: 13vh;
-  width: 55vw;
-}
-
-@keyframes fadein {
+  [class^="study-"]:hover {
+    box-shadow: #2C666E 1vw 1vh 4vw;
+    margin-left: 4vw;
+    margin-right: 6vw;
+    margin-top: 4vh;
+    transition: all 500ms ease-in-out;
+  }
+  [class^="case-"] {
+    opacity: 0;
+    position: absolute;
+    top: 35vh;
+    left: 2vw;
+    width: 86vw;
+    height: 55vh;
+    font-family: 'gilroylight';
+    font-size: 1.25vw;
+    display: none;
+  }
+ @keyframes fadein {
   0% {
     opacity: 0;
   }
@@ -378,4 +253,33 @@ body {
   100% {
     opacity: 1;
   }
-}
+ }
+
+ @keyframes expand {
+  0% {
+    width: 39.5vw;
+    height: 40vh;
+  }
+  99.9% {
+    width: 90vw;
+    height: 90vh;
+  }
+  100% {
+    width: 90vw;
+    height: 90vh;
+  }
+ }
+ @keyframes contract {
+  0% {
+    width: 90vw;
+    height: 90vh;
+  }
+  99.9% {
+    width: 39.5vw;
+    height: 40vh;
+  }
+  100% {
+    width: 39.5vw;
+    height: 40vh;
+  }
+ }
